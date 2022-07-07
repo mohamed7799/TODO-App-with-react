@@ -24,6 +24,7 @@ module.exports = {
         "dark-mobile": "url('./assets/bg-mobile-dark.jpg')",
         "light-desktop": "url('./assets/bg-desktop-light.jpg')",
         "dark-desktop": "url('./assets/bg-desktop-dark.jpg')",
+        "check": "url('./assets/icon-check.svg')",
       },
     },
   },
