@@ -15,7 +15,9 @@ const App = () => {
     if (theme === "light") setMode("dark");
     else setMode("light");
   };
-
+  const addTask = (newTask) => {
+    setTodoList([...todoList, newTask]);
+  };
   //useEffects
 
   useEffect(() => {
@@ -27,8 +29,12 @@ const App = () => {
     <div className="min-h-full bg-contain bg-no-repeat flex justify-center bg-light_veryLightGray dark:bg-dark_VeryDarkBlue dark:md:bg-dark-desktop md:bg-light-desktop dark:bg-dark-mobile bg-light-mobile font-Montserrat">
       <section className=" max-w-lg w-11/12 mx-2 my-12">
         <Header theme={theme} toggleTheme={toggleTheme}></Header>
-        <InputField setNewTask={setNewTask} newTask={newTask}></InputField>
-        <TodoContainer></TodoContainer>
+        <InputField
+          addTask={addTask}
+          setNewTask={setNewTask}
+          newTask={newTask}
+        ></InputField>
+        <TodoContainer todoList={todoList}></TodoContainer>
         <FiltersMobile></FiltersMobile>
         <p className="text-center text-light_DarkGrayishBlue dark:text-dark_DarkGrayishBlue mt-6 text-sm">
           Drag and Drop to reorder the list

@@ -1,12 +1,10 @@
 import { AiOutlineClose } from "react-icons/ai";
-const TodoItem = () => {
+const TodoItem = ({ item }) => {
   return (
     <>
       <li className="p-4 flex cursor-pointer items-center group">
-        <span className="bg-no-repeat bg-center group-hover:bg-blue-400 group-hover:bg-check mr-2 w-6 h-6 dark:border-dark_DarkGrayishBlue border-light_LightGrayishBlue border rounded-full inline-block"></span>
-        <span className="group-hover:line-through group-hover:text-gray-400">
-          item
-        </span>
+        <span className="bg-no-repeat bg-center  mr-2 w-6 h-6 dark:border-dark_DarkGrayishBlue border-light_LightGrayishBlue border rounded-full inline-block"></span>
+        <span>{item}</span>
         <AiOutlineClose className="ml-auto md:hidden group-hover:block w-6 h-6" />
       </li>
       <hr className="dark:border-dark_VeryDarkGrayishBlue" />

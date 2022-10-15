@@ -1,13 +1,15 @@
 import TodoItem from "./todoItem";
 
-const List = () => {
+const List = ({ todoList }) => {
   return (
     <ul>
-      <TodoItem></TodoItem>
-      <TodoItem></TodoItem>
-      <TodoItem></TodoItem>
-      <TodoItem></TodoItem>
-      <TodoItem></TodoItem>
+      {todoList.length ? (
+        todoList.map((item, index) => (
+          <TodoItem item={item} key={index}></TodoItem>
+        ))
+      ) : (
+        <li className="capitalize text-center p-5">the list is empty</li>
+      )}
     </ul>
   );
 };
