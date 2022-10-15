@@ -16,7 +16,7 @@ const App = () => {
     else setMode("light");
   };
   const addTask = (newTask) => {
-    setTodoList([...todoList, newTask]);
+    setTodoList([...todoList, { data: newTask, completed: false }]);
   };
   //useEffects
 
@@ -34,7 +34,10 @@ const App = () => {
           setNewTask={setNewTask}
           newTask={newTask}
         ></InputField>
-        <TodoContainer todoList={todoList}></TodoContainer>
+        <TodoContainer
+          setTodoList={setTodoList}
+          todoList={todoList}
+        ></TodoContainer>
         <FiltersMobile></FiltersMobile>
         <p className="text-center text-light_DarkGrayishBlue dark:text-dark_DarkGrayishBlue mt-6 text-sm">
           Drag and Drop to reorder the list
