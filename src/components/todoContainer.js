@@ -5,7 +5,7 @@ const TodoContainer = ({ setTodoList, todoList }) => {
   return (
     <div className="bg-white text-light_VeryDarkGrayishBlue dark:text-dark_LightGrayishBlue dark:bg-dark_VeryDarkDesaturatedBlue rounded-md  shadow-lg">
       <List setTodoList={setTodoList} todoList={todoList}></List>
-      <Filters></Filters>
+      <Filters length={todoList.length}></Filters>
     </div>
   );
 };
