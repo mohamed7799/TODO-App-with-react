@@ -1,6 +1,6 @@
 import TodoItem from "./todoItem";
 
-const List = ({ setTodoList, todoList }) => {
+const List = ({ setTodoList, todoList, filter }) => {
   const deleteItem = (item) => {
     setTodoList(todoList.filter((task) => task.data !== item.data));
   };
@@ -19,14 +19,21 @@ const List = ({ setTodoList, todoList }) => {
   return (
     <ul>
       {todoList.length ? (
-        todoList.map((item, index) => (
-          <TodoItem
-            deleteItem={deleteItem}
-            markCompleted={markCompleted}
-            item={item}
-            key={index}
-          ></TodoItem>
-        ))
+        //filter the data then map through the tasks to render them
+        todoList
+          .filter((task) => {
+            if (filter === "Completed") return task.completed;
+            else if (filter === "Active") return !task.completed;
+            else return true;
+          })
+          .map((item, index) => (
+            <TodoItem
+              deleteItem={deleteItem}
+              markCompleted={markCompleted}
+              item={item}
+              key={index}
+            ></TodoItem>
+          ))
       ) : (
         <li className="capitalize text-center p-5">the list is empty</li>
       )}

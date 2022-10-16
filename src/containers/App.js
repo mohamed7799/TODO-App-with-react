@@ -9,7 +9,7 @@ const App = () => {
   const [theme, setMode] = useLocalStorage("theme", "light");
   const [newTask, setNewTask] = useState("");
   const [todoList, setTodoList] = useState([]);
-
+  const [filter, setFilter] = useState("All");
   //functions
   const toggleTheme = () => {
     if (theme === "light") setMode("dark");
@@ -17,6 +17,9 @@ const App = () => {
   };
   const addTask = (newTask) => {
     setTodoList([...todoList, { data: newTask, completed: false }]);
+  };
+  const selectFilter = (e) => {
+    setFilter(e.target.textContent);
   };
   //useEffects
 
@@ -35,10 +38,16 @@ const App = () => {
           newTask={newTask}
         ></InputField>
         <TodoContainer
+          selectFilter={selectFilter}
+          setFilter={setFilter}
+          filter={filter}
           setTodoList={setTodoList}
           todoList={todoList}
         ></TodoContainer>
-        <FiltersMobile></FiltersMobile>
+        <FiltersMobile
+          selectFilter={selectFilter}
+          filter={filter}
+        ></FiltersMobile>
         <p className="text-center text-light_DarkGrayishBlue dark:text-dark_DarkGrayishBlue mt-6 text-sm">
           Drag and Drop to reorder the list
         </p>

@@ -1,9 +1,22 @@
-const FiltersMobile = () => {
+import FilterButton from "./filterButton";
+const FiltersMobile = ({ filter, selectFilter }) => {
   return (
     <div className="flex gap-4 justify-center p-4 md:hidden mt-4 bg-white text-light_VeryDarkGrayishBlue dark:text-dark_LightGrayishBlue dark:bg-dark_VeryDarkDesaturatedBlue rounded-md  shadow-lg">
-      <button className="hover:text-blue-500">All</button>
-      <button className="hover:text-blue-500">Active</button>
-      <button className="hover:text-blue-500">Completed</button>
+      <FilterButton
+        filter={filter}
+        selectFilter={selectFilter}
+        filterType="All"
+      ></FilterButton>
+      <FilterButton
+        filter={filter}
+        selectFilter={selectFilter}
+        filterType="Active"
+      ></FilterButton>
+      <FilterButton
+        filter={filter}
+        selectFilter={selectFilter}
+        filterType="Completed"
+      ></FilterButton>
     </div>
   );
 };
