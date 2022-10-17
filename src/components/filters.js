@@ -1,6 +1,6 @@
 import FilterButton from "./filterButton";
 
-const Filters = ({ length, filter, selectFilter }) => {
+const Filters = ({ length, filter, selectFilter, clearCompleted }) => {
   return (
     <div className="flex justify-between p-4 text-sm items-center">
       <span className="text-light_DarkGrayishBlue">{length} Tasks</span>
@@ -21,7 +21,9 @@ const Filters = ({ length, filter, selectFilter }) => {
           filterType="Completed"
         ></FilterButton>
       </div>
-      <button className="hover:text-blue-500">Clear Completed</button>
+      <button onClick={clearCompleted} className="hover:text-blue-500">
+        Clear Completed
+      </button>
     </div>
   );
 };

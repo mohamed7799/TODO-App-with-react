@@ -10,7 +10,9 @@ const TodoItem = ({ item, deleteItem, markCompleted }) => {
         ></span>
         <span
           onClick={() => markCompleted(item)}
-          className={`${item.completed ? "line-through text-gray-500" : ""}`}
+          className={`flex-1 ${
+            item.completed ? "line-through text-gray-500" : ""
+          }`}
         >
           {item.data}
         </span>
