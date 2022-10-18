@@ -4,6 +4,7 @@ import Header from "../components/header";
 import InputField from "../components/inputField";
 import TodoContainer from "../components/todoContainer";
 import useLocalStorage from "../hooks/useLocalStorage";
+import { v4 as uuidv4 } from "uuid";
 const App = () => {
   //state
   const [theme, setMode] = useLocalStorage("theme", "light");
@@ -16,7 +17,10 @@ const App = () => {
     else setMode("light");
   };
   const addTask = (newTask) => {
-    setTodoList([...todoList, { data: newTask, completed: false }]);
+    setTodoList([
+      ...todoList,
+      { data: newTask, completed: false, id: uuidv4() },
+    ]);
   };
   const selectFilter = (e) => {
     setFilter(e.target.textContent);
